@@ -44,7 +44,6 @@ def get_dataset(dataset_name: str) -> pd.DataFrame:
             dataset_format="dataframe"
         )
         data_df['label'] = label
-        # data_df['label'] = data_df['label'].map({'2':0, '1':1})
 
     elif dataset_name == "car":
         dataset = openml.datasets.get_dataset(40975)

@@ -1,4 +1,6 @@
 from utils import get_dataset, serialize
+from sklearn.preprocessing import LabelEncoder
+
 
 datasets = [
     'adult',
@@ -13,6 +15,11 @@ datasets = [
 for dataset_name in datasets:
     df = get_dataset(dataset_name=dataset_name)
     label_col = 'label'
+
+    # Encode labels numerically
+    le = LabelEncoder()
+    df[label_col] = le.fit_transform(df[label_col])
+    label_map = dict(zip(le.classes_, le.transform(le.classes_)))
 
     # --- Basic stats ---
     num_instances = df.shape[0]
