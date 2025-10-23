@@ -49,7 +49,7 @@ for dataset_name in datasets:
 
     for model_name, short_model_name in models:
 
-        print(f"\Extracting {model_name} embeddings from {dataset_name}", flush=True)
+        print(f"Extracting {model_name} embeddings from {dataset_name}", flush=True)
 
         # Get model and tokenizer
         if model_name == 'UFNLP/gatortron-base':
